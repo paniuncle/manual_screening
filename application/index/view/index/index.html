@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人工筛选系统</title>
+</head>
+<body>
+<h3 style="text-align: center;color:red;">上一个您操作的ID为: <strong>{$last_id}</strong></h3>
+    <div style="width: 80%;border:1px solid #000;margin:0 auto;text-align:center;">
+        <img src="{$img_src}" style="width:80%" />
+    </div>
+    <div style="width: 80%;border:1px solid #000;min-height: 400px;margin:0 auto;">
+        <p>文物标题: <strong>{$item_title}</strong></p>
+        <p>文物作者: <strong>{$item_author}</strong></p>
+        <p>文物描述: <strong>{$item_desc}</strong></p>
+        <p>所属国家: <strong>{$item_country}</strong></p>
+        <p>所属时期: <strong>{$item_period}</strong></p>
+
+        <form method="post" action="./index.php?s=/index/index/submit" style="text-align: center;">
+            <h2>操作区</h2>
+            <input type="hidden" name="item_id" value="{$item_id}">
+            <label for="radio1"><input id="radio1" type="radio" name="reason" value="1">合格</label>
+            <label for="radio2"><input id="radio2" type="radio" name="reason" value="3">资料有误</label>
+            <label for="radio3"><input id="radio3" type="radio" name="reason" value="0">垃圾作品</label>
+            <br><br>
+            <textarea placeholder="如果不合格或者资料错误，这里填写相关资料，没有可以不填写" style="width:80%;height:80px;" name="desc"></textarea>
+            <br>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+</body>
+</html>
